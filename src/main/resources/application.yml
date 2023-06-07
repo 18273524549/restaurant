@@ -1,0 +1,35 @@
+server:
+  port: 80
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/restaurant?serverTimezone=UTC
+      username: root
+      password: xiesong666
+
+  main:
+    allow-bean-definition-overriding: true # 允许Bean的重载
+  config:
+    name: com.AppConfig
+
+  bean:
+    loginService:
+      class: com.service.impl.LoginServiceImpl
+
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: res_
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure:
+            condition: OFF
